@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章额度管理系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <h1>文章额度管理系统</h1>
+            <div class="login-container" id="login-container">
+                <input type="text" id="username" placeholder="用户名">
+                <input type="password" id="password" placeholder="密码">
+                <button id="login-btn">登录</button>
+            </div>
+            <div class="user-info" id="user-info" style="display: none;">
+                <span id="current-user"></span>
+                <button id="logout-btn">退出</button>
+            </div>
+        </div>
+
+        <!-- 管理员面板 -->
+        <div class="admin-panel" id="admin-panel" style="display: none;">
+            <h2>额度管理</h2>
+            <div class="quota-form">
+                <div class="form-group">
+                    <label for="region-select">选择区域：</label>
+                    <select id="region-select">
+                        <option value="east">东区</option>
+                        <option value="west">西区</option>
+                        <option value="south">南区</option>
+                        <option value="north">北区</option>
+                        <option value="central">中区</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="channel-select">选择渠道：</label>
+                    <select id="channel-select">
+                        <option value="clinic">门诊</option>
+                        <option value="yandao">严道</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="action-select">操作类型：</label>
+                    <select id="action-select">
+                        <option value="use">使用额度</option>
+                        <option value="add">增加额度</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amount-input">数量：</label>
+                    <input type="number" id="amount-input" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="note-input">备注：</label>
+                    <input type="text" id="note-input" placeholder="可选">
+                </div>
+                <button id="submit-btn">提交</button>
+            </div>
+        </div>
+
+        <!-- 数据展示面板 -->
+        <div class="data-panel" id="data-panel" style="display: none;">
+            <h2>额度使用情况</h2>
+            <div class="quota-table-container">
+                <table class="quota-table">
+                    <thead>
+                        <tr>
+                            <th>区域</th>
+                            <th>门诊渠道</th>
+                            <th>严道渠道</th>
+                            <th>总计</th>
+                        </tr>
+                    </thead>
+                    <tbody id="quota-table-body">
+                        <!-- 数据将通过JavaScript动态填充 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 操作记录面板 -->
+        <div class="history-panel" id="history-panel" style="display: none;">
+            <h2>操作记录</h2>
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>区域</th>
+                            <th>渠道</th>
+                            <th>操作</th>
+                            <th>数量</th>
+                            <th>操作人</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-table-body">
+                        <!-- 数据将通过JavaScript动态填充 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
